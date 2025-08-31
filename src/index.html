@@ -17,6 +17,44 @@
         <button id="startButton" class="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Start Game</button>
     </div>
 
-    
+    <script>
+        const target = document.getElementById('target');
+        const scoreDisplay = document.getElementById('score');
+        const gameArea = document.getElementById('gameArea');
+        const startButton = document.getElementById('startButton');
+        let score = 0;
+        let gameActive = false;
+
+        function moveTarget() {
+            if (!gameActive) return;
+            const maxX = gameArea.offsetWidth - target.offsetWidth;
+            const maxY = gameArea.offsetHeight - target.offsetHeight;
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            target.style.left = `${newX}px`;
+            target.style.top = `${newY}px`;
+        }
+
+        target.addEventListener('click', () => {
+            if (gameActive) {
+                score++;
+                scoreDisplay.textContent = score;
+                moveTarget();
+            }
+        });
+
+        startButton.addEventListener('click', () => {
+            gameActive = true;
+            score = 0;
+            scoreDisplay.textContent = score;
+            moveTarget();
+            startButton.textContent = 'Restart Game';
+        });
+
+        // Move target every 1 second when game is active
+        setInterval(() => {
+            if (gameActive) moveTarget();
+        }, 1000);
+    </script>
 </body>
 </html>
