@@ -1,13 +1,22 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch the Square</title>
+    <link href="./output.css" rel="stylesheet">
+    
 </head>
-<body>
-  <h1 class="text-3xl font-bold  bg-red-500">
-    Hello world!
-  </h1>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="text-center">
+        <h1 class="text-3xl font-bold mb-4">Catch the Square</h1>
+        <p class="text-lg mb-2">Score: <span id="score">0</span></p>
+        <div id="gameArea" class="relative w-96 h-96 bg-white border-2 border-gray-300 rounded-lg">
+            <div id="target" class="absolute w-12 h-12 bg-blue-500 rounded cursor-pointer"></div>
+        </div>
+        <button id="startButton" class="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Start Game</button>
+    </div>
+
+    
 </body>
 </html>
